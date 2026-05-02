@@ -64,7 +64,7 @@ export default {
         logo: [
           "28px",
           {
-            lineHeight: "normal",
+            lineHeight: "1",
             letterSpacing: "-0.06em",
             fontWeight: "500",
           },

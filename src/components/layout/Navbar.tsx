@@ -22,7 +22,11 @@ export function Navbar() {
             )}
             aria-label="Rangi Fernando home"
           >
-            <span className={cn("font-medium lowercase text-title-sm lg:text-logo")}>
+            <span
+              className={cn(
+                "font-medium lowercase leading-none text-title-sm lg:text-logo"
+              )}
+            >
               {nav.logo.wordmark}
             </span>
           </Link>
