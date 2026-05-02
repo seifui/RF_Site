@@ -119,7 +119,6 @@ export interface NavLinkItem {
 export interface NavContent {
   logo: {
     wordmark: string;
-    markSrc: string;
   };
   links: NavLinkItem[];
   cta: { label: string; href: string };
@@ -144,7 +143,6 @@ export const siteContent: SiteContent = {
   nav: {
     logo: {
       wordmark: "rangi",
-      markSrc: "/images/nav/logo-mark.svg",
     },
     links: [
       { label: "About", href: "#about" },

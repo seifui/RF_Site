@@ -18,18 +18,10 @@ export function Navbar() {
           <Link
             href="/"
             className={cn(
-              "text-ink flex min-h-11 min-w-0 shrink-0 items-center gap-1 pr-4 no-underline"
+              "text-ink flex min-h-11 min-w-0 shrink-0 items-center pr-4 no-underline"
             )}
             aria-label="Rangi Fernando home"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element -- SVG brand mark */}
-            <img
-              src={nav.logo.markSrc}
-              alt=""
-              width={30}
-              height={30}
-              className={cn("size-6 shrink-0 lg:size-7.5")}
-            />
             <span className={cn("font-medium lowercase text-title-sm lg:text-logo")}>
               {nav.logo.wordmark}
             </span>
