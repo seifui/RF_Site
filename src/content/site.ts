@@ -221,7 +221,7 @@ export const siteContent: SiteContent = {
       {
         title: "Creative work video 1",
         youtubeUrl: "https://www.youtube.com/watch?v=VIDEO_PLACEHOLDER_1",
-        thumbnail: "/images/creative-work/video-1.png",
+        thumbnail: "/images/creative-work/video-2.png",
       },
       {
         title: "Creative work video 2",
@@ -231,7 +231,17 @@ export const siteContent: SiteContent = {
       {
         title: "Creative work video 3",
         youtubeUrl: "https://www.youtube.com/watch?v=VIDEO_PLACEHOLDER_3",
-        thumbnail: "/images/creative-work/video-3.png",
+        thumbnail: "/images/creative-work/video-2.png",
+      },
+      {
+        title: "Creative work video 4",
+        youtubeUrl: "https://www.youtube.com/watch?v=VIDEO_PLACEHOLDER_4",
+        thumbnail: "/images/creative-work/video-2.png",
+      },
+      {
+        title: "Creative work video 5",
+        youtubeUrl: "https://www.youtube.com/watch?v=VIDEO_PLACEHOLDER_5",
+        thumbnail: "/images/creative-work/video-2.png",
       },
     ],
   },
@@ -247,7 +257,7 @@ export const siteContent: SiteContent = {
         quote:
           "“Rangi creates such a safe and supportive space. Every session helped me release emotions I didn’t even realize I was holding onto. I feel lighter, calmer, and more connected to myself.”",
         clientType: "- Individual Client",
-        avatar: "/images/placeholders/avatar-1.jpg",
+        avatar: "/images/placeholders/avatar.png",
       },
       {
         name: "Nishani Fernando",
@@ -255,7 +265,7 @@ export const siteContent: SiteContent = {
         quote:
           "“The retreat was life-changing. Between the dance sessions, mindfulness practices, and being surrounded by nature, I left feeling completely renewed. It gave me tools I still use every day.”",
         clientType: "- Retreat Participant",
-        avatar: "/images/placeholders/avatar-2.jpg",
+        avatar: "/images/placeholders/avatar.png",
       },
       {
         name: "Shalini Jayawardena",
@@ -263,7 +273,7 @@ export const siteContent: SiteContent = {
         quote:
           "“The retreat was life-changing. Between the dance sessions, mindfulness practices, and being surrounded by nature, I left feeling completely renewed. It gave me tools I still use every day.”",
         clientType: "- Corporate Client",
-        avatar: "/images/placeholders/avatar-3.jpg",
+        avatar: "/images/placeholders/avatar.png",
       },
       {
         name: "Ruwani Dias",
@@ -271,7 +281,7 @@ export const siteContent: SiteContent = {
         quote:
           "“I was nervous to join at first, but the group energy was amazing. The way Rangi guided us made it easy to express myself through movement. I felt free and joyful again.”",
         clientType: "- Group Workshop Attendee",
-        avatar: "/images/placeholders/avatar-4.jpg",
+        avatar: "/images/placeholders/avatar.png",
       },
       {
         name: "Tharushi Senanayake",
@@ -279,7 +289,7 @@ export const siteContent: SiteContent = {
         quote:
           "“I’ve attended multiple sessions with Rangi, and each time I discover something new about myself. Her gentle yet powerful approach has truly helped me grow emotionally and creatively.”",
         clientType: "- Long-term Participant",
-        avatar: "/images/placeholders/avatar-5.jpg",
+        avatar: "/images/placeholders/avatar.png",
       },
       {
         name: "Pavani Wickramasinghe",
@@ -287,7 +297,7 @@ export const siteContent: SiteContent = {
         quote:
           "“The retreat gave me the space to slow down, reconnect with my body, and truly listen to myself. Rangi’s guidance was gentle yet powerful, and I left feeling grounded and deeply refreshed.”",
         clientType: "- Retreat Participant",
-        avatar: "/images/placeholders/avatar-6.jpg",
+        avatar: "/images/placeholders/avatar.png",
       },
     ],
   },

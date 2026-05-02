@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="text-ink flex flex-col gap-8 px-6 py-10 sm:px-10 sm:py-12 md:px-35 md:py-17">
+      <main className="text-ink flex min-w-0 w-full flex-col gap-16 px-6 pt-9 pb-10 sm:px-10 sm:pb-12 md:px-35 md:pb-17 lg:gap-24 lg:pt-17">
         <Hero />
         <About />
         <Offerings />
@@ -25,7 +25,9 @@ export default function Home() {
         <Faq />
         <FinalCta />
       </main>
-      <Footer />
+      <div className="mt-16 lg:mt-24">
+        <Footer />
+      </div>
     </>
   );
 }

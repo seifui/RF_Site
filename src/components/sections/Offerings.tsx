@@ -33,7 +33,7 @@ export function Offerings() {
       <div className="mx-auto flex w-full max-w-content flex-col gap-10 lg:gap-16">
         <div className="flex flex-col gap-2">
           <h2
-            className="text-logo text-ink lg:text-display-sm"
+            className="text-display-xs text-ink lg:text-display-sm"
             id="offerings-heading"
           >
             {headline}

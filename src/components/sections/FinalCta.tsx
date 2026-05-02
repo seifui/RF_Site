@@ -12,7 +12,7 @@ export function FinalCta() {
     <div className="mx-auto w-full max-w-content">
       <section
         aria-labelledby="final-cta-heading"
-        className="relative isolate my-12 overflow-hidden rounded-card lg:my-20"
+        className="relative isolate overflow-hidden rounded-card"
         id="contact"
       >
         <Image
@@ -31,7 +31,7 @@ export function FinalCta() {
         <div className="relative z-10 flex flex-col items-center gap-8 px-6 py-16 text-center lg:py-24">
           <div className="flex w-full flex-col gap-5 text-ink">
             <h2
-              className="text-display-sm text-balance lg:text-display-md"
+              className="text-display-xs text-balance text-ink lg:text-display-sm"
               id="final-cta-heading"
             >
               {headline}

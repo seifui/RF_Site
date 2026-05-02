@@ -1,56 +1,37 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { Play } from "lucide-react";
 
-import type { CreativeWorkVideoItem } from "@/content/site";
+import { Button } from "@/components/ui/button";
 import { siteContent } from "@/content/site";
 
-import { cn } from "@/lib/utils";
+interface Video {
+  title: string;
+  youtubeUrl: string;
+  thumbnail: string;
+}
 
-/** Matches Figma desktop video frame (561.92×366.14). */
-const VIDEO_ASPECT = 562 / 366;
-
-function VideoCard({
-  className,
-  title,
-  thumbnail,
-  youtubeUrl,
-}: CreativeWorkVideoItem & { className?: string }) {
+function VideoCard({ video }: { video: Video }) {
   return (
     <a
-      aria-label={title}
-      className={cn(
-        "snap-center shrink-0 rounded-video focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand",
-        className,
-      )}
-      href={youtubeUrl}
-      rel="noopener noreferrer"
+      href={video.youtubeUrl}
       target="_blank"
+      rel="noopener noreferrer"
+      className="group relative block aspect-video overflow-hidden rounded-video bg-card-soft"
     >
-      <div
-        className="relative w-full overflow-hidden rounded-video"
-        style={{ aspectRatio: VIDEO_ASPECT }}
-      >
-        <Image
-          alt=""
-          aria-hidden
-          className="size-full object-cover"
-          fill
-          sizes="(max-width: 1023px) 70vw, 30vw"
-          src={thumbnail}
-        />
-        <div className="pointer-events-none absolute inset-0 rounded-video bg-[rgb(52_55_54_/_0.25)]" />
-        <span className="pointer-events-none absolute inset-0 flex items-center justify-center">
-          <span className="flex size-11 items-center justify-center rounded-full bg-[#ff0300] lg:size-[4.5rem]">
-            <Play
-              aria-hidden
-              className="size-4 translate-x-0.5 fill-white text-white lg:size-6"
-              fill="white"
-              strokeWidth={0}
-            />
-          </span>
-        </span>
+      <Image
+        src={video.thumbnail}
+        alt={video.title}
+        fill
+        sizes="(min-width: 1024px) 600px, 80vw"
+        className="object-cover"
+      />
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-600 transition-transform group-hover:scale-110 md:h-14 md:w-14 lg:h-20 lg:w-20">
+          <Play className="ml-0.5 h-4 w-4 fill-white text-white md:h-6 md:w-6 lg:ml-1 lg:h-8 lg:w-8" />
+        </div>
       </div>
     </a>
   );
@@ -59,56 +40,60 @@ function VideoCard({
 export function CreativeWork() {
   const { headline, subtext, ctaLabel, ctaHref, videos } =
     siteContent.creativeWork;
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Center the scrollable strip so the middle card (index 2 of 5) sits in the viewport.
+  // (scrollWidth - clientWidth) / 2 equals max scroll / 2 for symmetric track padding.
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const centerStrip = () => {
+      const maxScroll = Math.max(0, container.scrollWidth - container.clientWidth);
+      container.scrollLeft = maxScroll / 2;
+    };
+
+    centerStrip();
+    window.addEventListener("resize", centerStrip);
+    return () => window.removeEventListener("resize", centerStrip);
+  }, [videos.length]);
 
   return (
-    <section
-      aria-labelledby="creative-work-heading"
-      className="relative flex flex-col gap-10 -mx-6 px-6 pb-14 pt-4 sm:-mx-10 sm:px-10 sm:pt-6 md:-mx-[70px] md:px-[70px] lg:gap-[60px] lg:pb-17 lg:pt-17"
-      id="work"
-    >
-      <div className="mx-auto flex w-full max-w-content flex-col gap-2">
-        <h2
-          className="text-title-md leading-none tracking-tight text-ink lg:text-display-sm"
-          id="creative-work-heading"
-        >
-          {headline}
-        </h2>
-        <p className="text-caption text-ink-muted lg:text-body-lg">{subtext}</p>
+    <section className="w-full" id="work">
+      {/* Title block — aligned with content width */}
+      <div className="mx-auto max-w-content px-6 lg:px-0">
+        <h2 className="text-display-xs text-ink lg:text-display-sm">{headline}</h2>
+        <p className="mt-2 text-body-lg text-ink-muted">{subtext}</p>
       </div>
 
-      {/* Full-bleed carousel aligned with Offerings bleed pattern */}
-      <div className="relative isolate -mx-6 mb-0 sm:-mx-10 md:-mx-[70px]">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-background to-transparent sm:w-14 lg:w-20"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-background to-transparent sm:w-14 lg:w-20"
-        />
-
-        <div className="scrollbar-hide snap-x snap-mandatory overflow-x-auto [-webkit-overflow-scrolling:touch]">
-          <div className="flex w-max gap-4 px-[calc((100vw-70vw)/2)] lg:gap-7.5 lg:px-[calc((100vw-30vw)/2)]">
-            {videos.map((video, index) => (
-              <VideoCard
-                className="w-[70vw] lg:w-[30vw]"
-                key={`${video.title}-${index}`}
-                {...video}
-              />
-            ))}
-          </div>
+      {/* Carousel — full width with horizontal scroll */}
+      <div
+        ref={scrollRef}
+        className="mt-8 snap-x snap-mandatory overflow-x-auto scrollbar-hide lg:mt-12"
+      >
+        <div className="flex gap-4 px-[15%] lg:gap-6 lg:px-[20%]">
+          {videos.map((video, i) => (
+            <div
+              key={`${video.title}-${i}`}
+              className="w-[70%] flex-shrink-0 snap-center lg:w-[60%]"
+            >
+              <VideoCard video={video} />
+            </div>
+          ))}
         </div>
       </div>
 
-      <div className="mx-auto flex max-w-content justify-center">
-        <a
-          className="inline-flex items-center justify-center rounded-pill border border-brand px-6 py-4 text-caption font-bold text-brand whitespace-nowrap transition-colors hover:bg-brand/10"
-          href={ctaHref}
-          rel="noopener noreferrer"
-          target="_blank"
+      {/* CTA below carousel */}
+      <div className="mx-auto mt-10 flex max-w-content justify-center lg:mt-16">
+        <Button
+          asChild
+          className="h-auto w-full rounded-pill border-brand px-6 py-4 text-caption font-bold text-brand hover:bg-card-soft hover:text-brand sm:w-auto"
+          variant="outline"
         >
-          {ctaLabel}
-        </a>
+          <a href={ctaHref} rel="noopener noreferrer" target="_blank">
+            {ctaLabel}
+          </a>
+        </Button>
       </div>
     </section>
   );

@@ -53,6 +53,14 @@ export default {
             fontWeight: "700",
           },
         ],
+        "display-xs": [
+          "32px",
+          {
+            lineHeight: "1",
+            letterSpacing: "-0.02em",
+            fontWeight: "700",
+          },
+        ],
         logo: [
           "28px",
           {
