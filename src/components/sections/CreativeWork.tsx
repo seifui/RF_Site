@@ -60,10 +60,12 @@ export function CreativeWork() {
 
   return (
     <section className="w-full" id="work">
-      {/* Title block — aligned with content width */}
-      <div className="mx-auto max-w-content px-6 lg:px-0">
-        <h2 className="text-display-xs text-ink lg:text-display-sm">{headline}</h2>
-        <p className="mt-2 text-body-lg text-ink-muted">{subtext}</p>
+      {/* Title block — same horizontal rhythm as main + Offerings/Testimonials (no extra px) */}
+      <div className="mx-auto flex w-full max-w-content flex-col">
+        <div className="flex flex-col gap-2">
+          <h2 className="text-display-xs text-ink lg:text-display-sm">{headline}</h2>
+          <p className="text-caption text-ink-muted lg:text-body-lg">{subtext}</p>
+        </div>
       </div>
 
       {/* Carousel — full width with horizontal scroll */}
