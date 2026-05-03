@@ -41,17 +41,17 @@ export function Hero() {
               </p>
             </div>
 
-            <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
+            <div className="flex w-full flex-col gap-3 lg:w-auto lg:flex-row lg:items-center lg:gap-4">
               <Button
                 asChild
-                className="w-full rounded-pill border-transparent bg-brand px-6 py-4 text-caption font-bold text-brand-foreground hover:bg-brand/90 lg:w-auto"
+                className="h-[54px] w-full shrink-0 rounded-pill border-transparent bg-brand px-6 py-4 text-caption font-bold leading-[normal] text-brand-foreground hover:bg-brand/90 lg:h-auto lg:w-auto"
                 variant="default"
               >
                 <Link href={hero.ctaPrimary.href}>{hero.ctaPrimary.label}</Link>
               </Button>
               <Button
                 asChild
-                className="w-full rounded-pill border-brand bg-transparent px-6 py-4 text-caption font-bold text-brand hover:bg-brand/10 lg:w-auto"
+                className="h-[54px] w-full shrink-0 rounded-pill border border-brand bg-transparent px-6 py-4 text-caption font-bold leading-[normal] text-brand hover:bg-brand/10 lg:h-auto lg:w-auto"
                 variant="outline"
               >
                 <Link href={hero.ctaSecondary.href}>
@@ -61,9 +61,9 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="flex w-full items-start justify-between gap-6 lg:justify-start lg:gap-69">
+          <div className="flex flex-row items-start gap-12 lg:gap-16">
             {hero.stats.map((stat, i) => (
-              <div className="flex min-w-0 flex-col items-start gap-3" key={i}>
+              <div className="flex min-w-0 shrink-0 flex-col items-start gap-3" key={i}>
                 <p className="text-title-md text-ink lg:text-display-md">
                   {stat.value}
                 </p>

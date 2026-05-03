@@ -36,20 +36,22 @@ export function FinalCta() {
             >
               {headline}
             </h2>
-            <p className="text-caption text-pretty lg:text-body-lg">{subtext}</p>
+            <p className="mx-auto text-caption text-pretty lg:max-w-xl lg:text-body-lg">
+              {subtext}
+            </p>
           </div>
 
           <div className="flex w-full flex-col gap-3 lg:w-auto lg:flex-row lg:gap-3">
             <Button
               asChild
-              className="w-full rounded-pill border-transparent bg-deep px-6 py-4 text-caption font-bold text-surface hover:bg-deep/90 lg:w-auto"
+              className="h-[54px] w-full shrink-0 rounded-pill border-transparent bg-deep px-6 text-caption font-bold leading-[normal] text-surface hover:bg-deep/90 lg:w-auto"
               variant="default"
             >
               <Link href={ctaPrimary.href}>{ctaPrimary.label}</Link>
             </Button>
             <Button
               asChild
-              className="w-full rounded-pill border-ink bg-transparent px-6 py-4 text-caption font-bold text-ink hover:bg-ink/10 hover:text-ink lg:w-auto"
+              className="h-[54px] w-full shrink-0 rounded-pill border-ink bg-transparent px-6 text-caption font-bold leading-[normal] text-ink hover:bg-ink/10 hover:text-ink lg:w-auto"
               variant="outline"
             >
               <Link
